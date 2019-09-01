@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="max-age=604800">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+
+  <title class="multi-lang" lang_cn="慢性乙型肝炎e抗原血清转换概率人工神经网络模型计算器" lang_en="Chronic Hepatitis B e Antigen Seroconversion Probability Artificial Neural Network Model Calculator">慢性乙型肝炎e抗原血清转换概率人工神经网络模型计算器</title>
+  <link rel="icon" href="favicon.ico">
+</head>
+
+<body class="bg-light">
+  <br><br>
+  <header>
+    <h1 class="text-center multi-lang" lang_cn="慢性乙型肝炎e抗原血清转换概率" lang_en="Chronic Hepatitis B e Antigen Seroconversion Probability">慢性乙型肝炎e抗原血清转换概率</h1>
+    <h2 class="text-center multi-lang" lang_cn="人工神经网络模型计算器" lang_en="Artificial Neural Network Model Calculator">人工神经网络模型计算器</h2>
+  </header>
+  <br>
+  <!-- <div class="text-center">
+    <span class="align-text-top">简体中文</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round align-middle"></span>
+    </label>
+    <span class="align-middle">English</span>
+  </div> -->
+  <div class="text-center">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button id="toggle-lang_cn" type="button" onclick="lang_cn()" class="btn btn-sm btn-primary">简体中文</button>
+      <button id="toggle-lang_en" type="button" onclick="lang_en()" class="btn btn-sm btn-secondary">&nbsp;English&nbsp;</button>
+    </div>
+  </div>
+  <br>
+  <main class="container shadow-sm p-3 mb-5 bg-white rounded">
+    <!-- 参数 -->
+    <br>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header"><b class="multi-lang" lang_cn="参数" lang_en="Parameters">参数</b></div>
+          <div class="card-body">
+            <form id="form_agrs">
+              <!-- 第一行 -->
+              <div class="form-row">
+
+                <div class="col"></div>
+
+                <div class="col-md-3 mb-3">
+                  <label><b>Age</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_age" name="age" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text multi-lang" lang_cn="岁" lang_en="Year">岁</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="年龄" lang_en="">年龄</div>
+                </div>
+
+                <div class="col-md-1 mb-3"></div>
+                <div class="col-md-3 mb-3">
+                  <label><b>ALT</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_alt" name="alt" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">U/L</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="丙氨酸氨基转移酶" lang_en="alanine aminotransferase">丙氨酸氨基转移酶</div>
+                </div>
+
+                <div class="col-md-1 mb-3"></div>
+
+                <div class="col-md-3 mb-3">
+                  <label><b>AST</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_ast" name="ast" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">U/L</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="门冬氨酸氨基转移酶" lang_en="aspartate aminotransferase">门冬氨酸氨基转移酶</div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <!-- 第一行结束 -->
+
+              <!-- 第二行 -->
+              <div class="form-row">
+                <div class="col"></div>
+                <div class="col-md-3 mb-3">
+                  <label><b>GLO</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_glb" name="glb" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">g/L</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="球蛋白" lang_en="globulin">球蛋白</div>
+                </div>
+
+                <div class="col-md-1 mb-3"></div>
+                <div class="col-md-3 mb-3">
+                  <label><b>ALP</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_alp" name="alp" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">U/L</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="碱性磷酸酶" lang_en="alkaline phosphatase">碱性磷酸酶</div>
+                </div>
+
+                <div class="col-md-1 mb-3"></div>
+                <div class="col-md-3 mb-3">
+                  <label><b>qHBeAg</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_qhbeag" name="qhbeag" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">S/CO</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="乙肝e抗原滴度" lang_en="quantitative hepatitis B e antigen">乙肝e抗原滴度</div>
+                </div>
+
+                <div class="col"></div>
+
+              </div>
+              <!-- 第二行结束 -->
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-2"></div>
+    </div>
+
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- 结果 -->
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header"><b class="multi-lang" lang_cn="结果" lang_en="Result">结果</b></div>
+          <div class="card-body">
+            <div class="row justify-content-md-center">
+              <div class="col col-md-3">
+                <h5 id="rs_text" class="card-title text-danger multi-lang" lang_cn="<b>阳性</b>" lang_en="<b>Positive</b>"><b>阳性</b></h5>
+              </div>
+              <div class="col col-md-6"></div>
+              <div class="col col-md-3">
+                <span class="align-text-left multi-lang" lang_cn="概率：" lang_en="Probability: ">概率：</span><span id="rs_value">0.5761688338682499</span>
+              </div>
+            </div>
+
+            <div class="progress">
+              <div id="rs_progress" class="progress-bar bg-danger" role="progressbar" style="width: 58%;" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">58%</div>
+            </div>
+            <hr>
+            <h5 class="text-center"style="color: #bbb;"><b class="multi-lang" lang_cn="说明" lang_en="Instructions">说明</b></h5>
+            <ul style="color: #bbb;">
+              <li class="multi-lang" lang_cn="<b>使用方法1</b>：直接修改上面的参数，会自动计算结果；" lang_en="<b>Method 1</b>: Directly modify the above parameters and the result will be calculated automatically;"><b>使用方法1</b>：直接修改上面的参数，会自动计算结果；</li>
+              <li class="multi-lang" lang_cn="<b>使用方法2</b>：使用URL代参数访问，会自动填写表单和计算结果；" lang_en="<b>Method 2</b>: Use URLs with parameters, the form and results will be automatically completed;"><b>使用方法2</b>：使用URL代参数访问，会自动填写表单和计算结果；</li>
+              <li class="multi-lang" lang_cn="<b>概率</b>：是神经网络模型的SoftMax函数的输出结果。" lang_en='<b>Probability</b>: The output of the SoftMax function of the neural network model.'><b>概率</b>：是神经网络模型的SoftMax函数的输出结果。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-2"></div>
+    </div>
+
+    <div class="ann-result">
+      <label for=""></label>
+    </div>
+
+  </main>
+
+  <footer class="container shadow-sm p-3 mb-5 bg-white rounded text-info">
+    <div class="row">
+      <div class="col text-center multi-lang" lang_cn="<b>邮箱</b>：annmodel@163.com | <b>地址</b>：北京市朝阳区京顺东街8号" lang_en="<b>E-Mail</b>: annmodel@163.com | <b>Address</b>: Jingshun Dong Street No. 8, Chaoyang District, Beijing"><b>邮箱</b>：annmodel@163.com | <b>地址</b>：北京市朝阳区京顺东街8号</div>
+    </div>
+    <div class="row">
+      <div class="col text-center multi-lang" lang_cn="© 2018 首都医科大学附属北京地坛医院中西医结合中心" lang_en="© 2018 Center of Integrative Medicine, Beijing Ditan Hospital, Capital Medical University. All rights reserved. ">© 2018 首都医科大学附属北京地坛医院中西医结合中心，版权所有。</div>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/mathjs/4.4.0/math.min.js"></script>
+  <script src="js/ann-model.js"></script>
+  <script src="js/evaluate.js?v=5"></script>
+</body>
+
+</html>
