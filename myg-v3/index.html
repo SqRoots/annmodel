@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
 
-  <title class="multi-lang" lang_cn="慢性乙型肝炎e抗原血清转换概率人工神经网络模型计算器" lang_en="Chronic Hepatitis B e Antigen Seroconversion Probability Artificial Neural Network Model Calculator">慢性乙型肝炎e抗原血清转换概率人工神经网络模型计算器</title>
+  <title class="multi-lang" lang_cn="乙肝相关肝癌1年无进展生存概率人工神经网络模型计算器" lang_en="1-year Progression-Free Survival Probability in HBV-related Hepatocellular Carcinoma Neural Network Model Calculator">乙肝相关肝癌1年无进展生存概率人工神经网络模型计算器</title>
   <link rel="icon" href="favicon.ico">
 </head>
 
 <body class="bg-light">
   <br><br>
   <header>
-    <h1 class="text-center multi-lang" lang_cn="慢性乙型肝炎e抗原血清转换概率" lang_en="Chronic Hepatitis B e Antigen Seroconversion Probability">慢性乙型肝炎e抗原血清转换概率</h1>
+    <h1 class="text-center multi-lang" lang_cn="乙肝相关肝癌1年无进展生存概率" lang_en="1-year Progression-Free Survival Probability in HBV-related Hepatocellular Carcinoma">乙肝相关肝癌1年无进展生存概率</h1>
     <h2 class="text-center multi-lang" lang_cn="人工神经网络模型计算器" lang_en="Artificial Neural Network Model Calculator">人工神经网络模型计算器</h2>
   </header>
   <br>
@@ -103,7 +103,7 @@
                   <label><b>WBC</b></label>
                   <div class="input-group">
                     <input type="text" class="form-control" id="arg_wbc" name="wbc" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">10^9/L1</span></div>
+                    <div class="input-group-append rounded"><span class="input-group-text">10^9/L</span></div>
                   </div>
                   <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="白细胞计数" lang_en="White blood cells">白细胞计数</div>
                 </div>
@@ -251,9 +251,9 @@
               <div class="col col-md-3">
                 <h5 id="rs_text" class="card-title text-danger multi-lang" lang_cn="<b>阳性</b>" lang_en="<b>Positive</b>"><b>阳性</b></h5>
               </div>
-              <div class="col col-md-6"></div>
-              <div class="col col-md-3">
-                <span class="align-text-left multi-lang" lang_cn="概率：" lang_en="Probability: ">概率：</span><span id="rs_value">0.5761688338682499</span>
+              <div class="col col-md-1"></div>
+              <div class="col col-md-8 text-right">
+                <span class="align-text-left multi-lang" lang_cn="1年无进展生存概率：" lang_en="Probability of 1-year Progression-Free Survival: ">1年无进展生存概率：</span><span id="rs_value">--</span>
               </div>
             </div>
 

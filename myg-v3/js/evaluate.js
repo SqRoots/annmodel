@@ -87,9 +87,9 @@ function setOutput(rs) {
     $('#rs_progress').attr('style', 'width: 0%;');
     $('#rs_progress').text('--');
   }else {
-    var rs_ratio = math.round(rs * 100)
+    var rs_ratio = math.round(100 - rs * 100)
     //输出概率值
-    $('#rs_value').text(rs.toFixed(6).toString());
+    $('#rs_value').text((1-rs).toFixed(6).toString());
     //修改进度条
     $('#rs_progress').attr('aria-valuenow', rs_ratio);
     $('#rs_progress').attr('style', 'width: ' + rs_ratio + '%;');
