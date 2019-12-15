@@ -56,11 +56,11 @@ function getDataFromForm(){
 function setOutput(rs) {
   //根据语言设置输出结果的变量
   if($('#toggle-lang_cn').hasClass('btn-primary')){
-    var rs_text_positive = '阳性';
-    var rs_text_negative = '阴性';
+    var rs_text_positive = '死亡';
+    var rs_text_negative = '生存';
   }else {
-    var rs_text_positive = 'Positive';
-    var rs_text_negative = 'Negative';
+    var rs_text_positive = 'Death';
+    var rs_text_negative = 'Survival';
   }
   //判断结果是阳性还是阴性，并设置文本颜色
   if (rs > 0.5) {
