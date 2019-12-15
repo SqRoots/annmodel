@@ -177,7 +177,7 @@ function lang_en(){
   //修改结果的语言
   if (rs_text == '--'){
     $('#rs_text').html('<b>--</b>');
-  }else if (rs_text == '进展或死亡' || rs_test == 'Progression or Death'){
+  }else if (rs_text == '进展或死亡' || rs_text == 'Progression or Death'){
     $('#rs_text').html('<b>Progression or Death</b>');
   }else {
     $('#rs_text').html('<b>Survival</b>');
