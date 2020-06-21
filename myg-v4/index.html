@@ -89,11 +89,19 @@
               <!-- 第二行 -->
               <div class="form-row">
                 <div class="col"></div>
+
                 <div class="col-md-3 mb-3">
                   <label><b>Ascites</b></label>
                   <div class="input-group">
-                    <input type="text" class="form-control" id="arg_asc" name="asc" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">cm</span></div>
+                    <select class="custom-select" id="arg_asc" name="asc" required>
+                      <option selected name="asc" value="0">0</option>
+                      <option name="asc" value="1">1</option>
+                      <option name="asc" value="2">2</option>
+                      <option name="asc" value="3">3</option>
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text" for="inputGroupSelect02">cm</label>
+                    </div>
                   </div>
                   <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="腹水" lang_en="Ascites">腹水</div>
                 </div>
@@ -110,11 +118,18 @@
 
 
                 <div class="col-md-1 mb-2"></div>
+
                 <div class="col-md-3 mb-3">
                   <label><b>Child-Pugh classification</b></label>
                   <div class="input-group">
-                    <input type="text" class="form-control" id="arg_cpc" name="cpc" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">--</span></div>
+                    <select class="custom-select" id="arg_cpc" name="cpc" required>
+                      <option selected name="cpc" value="1">1</option>
+                      <option name="cpc" value="2">2</option>
+                      <option name="cpc" value="3">3</option>
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text" for="inputGroupSelect02">--</label>
+                    </div>
                   </div>
                   <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="Child-Pugh分级" lang_en="Child-Pugh classification">Child-Pugh分级</div>
                 </div>
@@ -126,11 +141,17 @@
               <!-- 第三行 -->
               <div class="form-row">
                 <div class="col"></div>
+
                 <div class="col-md-3 mb-3">
                   <label><b>Gastrointestinal varices with bleeding</b></label>
                   <div class="input-group">
-                    <input type="text" class="form-control" id="arg_gvb" name="gvb" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">ml</span></div>
+                    <select class="custom-select" id="arg_gvb" name="gvb" required>
+                      <option selected name="gvb" value="0">0</option>
+                      <option name="gvb" value="1">1</option>
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text" for="inputGroupSelect02">ml</label>
+                    </div>
                   </div>
                   <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="食管胃静脉曲张出血" lang_en="Esophagogastric variceal bleeding">食管胃静脉曲张出血</div>
                 </div>
@@ -139,19 +160,25 @@
                 <div class="col-md-3 mb-3">
                   <label><b>Encephalopathy</b></label>
                   <div class="input-group">
-                    <input type="text" class="form-control" id="arg_enc" name="enc" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">--</span></div>
+                    <select class="custom-select" id="arg_enc" name="enc" required>
+                      <option selected name="enc" value="0">0</option>
+                      <option name="enc" value="1">1</option>
+                      <option name="enc" value="2">2</option>
+                      <option name="enc" value="3">3</option>
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text" for="inputGroupSelect02">--</label>
+                    </div>
                   </div>
                   <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="肝性脑病" lang_en="Hepatic encephalopathy">肝性脑病</div>
                 </div>
-
 
                 <div class="col-md-1 mb-2"></div>
                 <div class="col-md-3 mb-3">
                   <label><b>Lymphocyte count</b></label>
                   <div class="input-group">
                     <input type="text" class="form-control" id="arg_lyc" name="lyc" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">109/L</span></div>
+                    <div class="input-group-append rounded"><span class="input-group-text">10<sup>9</sup>/L</span></div>
                   </div>
                   <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="淋巴细胞计数" lang_en="Lymphocyte count">淋巴细胞计数</div>
                 </div>
@@ -167,7 +194,7 @@
                   <label><b>Neutrophil count</b></label>
                   <div class="input-group">
                     <input type="text" class="form-control" id="arg_nec" name="nec" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">109/L</span></div>
+                    <div class="input-group-append rounded"><span class="input-group-text">10<sup>9</sup>/L</span></div>
                   </div>
                   <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="中性粒细胞计数" lang_en="Neutrophil count">中性粒细胞计数</div>
                 </div>
@@ -188,7 +215,7 @@
                   <label><b>PLT</b></label>
                   <div class="input-group">
                     <input type="text" class="form-control" id="arg_plt" name="plt" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">109/L</span></div>
+                    <div class="input-group-append rounded"><span class="input-group-text">10<sup>9</sup>/L</span></div>
                   </div>
                   <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="血小板" lang_en="Platelets">血小板</div>
                 </div>
