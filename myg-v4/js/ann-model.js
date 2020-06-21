@@ -15,6 +15,7 @@ function eval_ann(ann_input){
   }
 
   // 计算神经网络，输入数据标准化
+  console.log(ann_input);
   var standard_input = math.dotDivide(math.subtract(ann_input,data_mean),data_std);
   // standard_input = LogisticSigmoid(standard_input);
   standard_input.push([1]);

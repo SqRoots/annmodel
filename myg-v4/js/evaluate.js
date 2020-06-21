@@ -30,6 +30,7 @@ function getDataFromForm(){
 
   var ann_input_dict = {};
   for (k in form_agrs){
+    // console.log(form_agrs[k]);
     // 收集神经网络输入数据
     ann_input_dict[form_agrs[k].name] = [parseFloat(form_agrs[k].value)];
     // 更新URL
@@ -115,12 +116,22 @@ function getUrlParam(name) {
 // ann_input.push(ann_input_dict["afp"]);
 // ann_input.push(ann_input_dict["cd4tcc"]);
 
+// input select options
+function setFormSelect(e, v){
+  for(i=0; i<e.length;i++){
+    if(e[i].value==parseInt(v)){
+      e[i].selected=true;
+      break;
+    }
+  }
+}
+
 //根据URL中的参数设置表单
 function setForm() {
   $('#arg_age').val(getUrlParam('age')||'');
-  $('#arg_asc').val(getUrlParam('asc')||'');
-  $('#arg_enc').val(getUrlParam('enc')||'');
-  $('#arg_gvb').val(getUrlParam('gvb')||'');
+  // $('#arg_asc').val(getUrlParam('asc')||'');
+  // $('#arg_enc').val(getUrlParam('enc')||'');
+  // $('#arg_gvb').val(getUrlParam('gvb')||'');
   $('#arg_alt').val(getUrlParam('alt')||'');
   $('#arg_alb').val(getUrlParam('alb')||'');
   $('#arg_nec').val(getUrlParam('nec')||'');
@@ -128,7 +139,12 @@ function setForm() {
   $('#arg_nlr').val(getUrlParam('nlr')||'');
   $('#arg_plt').val(getUrlParam('plt')||'');
   $('#arg_bun').val(getUrlParam('bun')||'');
-  $('#arg_cpc').val(getUrlParam('cpc')||'');
+  // $('#arg_cpc').val(getUrlParam('cpc')||'');
+
+  setFormSelect($('#arg_asc option'), getUrlParam('asc')||'');  // 处理4个选项
+  setFormSelect($('#arg_enc option'), getUrlParam('enc')||'');  // 处理4个选项
+  setFormSelect($('#arg_gvb option'), getUrlParam('gvb')||'');  // 处理4个选项
+  setFormSelect($('#arg_cpc option'), getUrlParam('cpc')||'');  // 处理4个选项
 }
 
 
@@ -152,7 +168,7 @@ function replaceParamVal(paramName, replaceWith) {
 // 切换为简体中文
 function lang_cn(){
   rs_text=$('#rs_text').text();
-  console.log(rs_text);
+  // console.log(rs_text);
   $('#toggle-lang_cn').removeClass('btn-secondary').addClass('btn-primary');
   $('#toggle-lang_en').removeClass('btn-primary').addClass('btn-secondary');
   $('.multi-lang').each(function(){
