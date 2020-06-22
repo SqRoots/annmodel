@@ -23,6 +23,12 @@ $(function() {
 });
 
 // ======================================================================
+// 定义常量
+const bad_rs_cn = '进展为肝癌';
+const bad_rs_en = 'Liver Cancer';
+const good_rs_cn = '无进展';
+const good_rs_en = 'No Deterioration';
+// ======================================================================
 // 定义函数
 function getDataFromForm(){
   // 从表单读取输入数据 ann_input
@@ -59,11 +65,11 @@ function getDataFromForm(){
 function setOutput(rs) {
   //根据语言设置输出结果的变量
   if($('#toggle-lang_cn').hasClass('btn-primary')){
-    var rs_text_positive = '进展或死亡';
-    var rs_text_negative = '生存';
+    var rs_text_positive = bad_rs_cn;
+    var rs_text_negative = good_rs_cn;
   }else {
-    var rs_text_positive = 'Progression or Death';
-    var rs_text_negative = 'Survival';
+    var rs_text_positive = bad_rs_en;
+    var rs_text_negative = good_rs_en;
   }
   //判断结果是阳性还是阴性，并设置文本颜色
   if (rs > 0.5) {
@@ -166,6 +172,8 @@ function replaceParamVal(paramName, replaceWith) {
 // ======================================================================
 //切换语言
 // 切换为简体中文
+
+
 function lang_cn(){
   rs_text=$('#rs_text').text();
   // console.log(rs_text);
@@ -177,10 +185,10 @@ function lang_cn(){
   //修改结果的语言
   if (rs_text == '--'){
     $('#rs_text').html('<b>--</b>');
-  }else if (rs_text == 'Progression or Death' || rs_text == '进展或死亡'){
-    $('#rs_text').html('<b>进展或死亡</b>');
+  }else if (rs_text == bad_rs_en || rs_text == bad_rs_cn){
+    $('#rs_text').html(`<b>${bad_rs_cn}</b>`);
   }else {
-    $('#rs_text').html('<b>生存</b>');
+    $('#rs_text').html(`<b>${good_rs_cn}</b>`);
   }
 }
 
@@ -196,9 +204,9 @@ function lang_en(){
   //修改结果的语言
   if (rs_text == '--'){
     $('#rs_text').html('<b>--</b>');
-  }else if (rs_text == '进展或死亡' || rs_text == 'Progression or Death'){
-    $('#rs_text').html('<b>Progression or Death</b>');
+  }else if (rs_text == bad_rs_en || rs_text == bad_rs_cn){
+    $('#rs_text').html(`<b>${bad_rs_en}</b>`);
   }else {
-    $('#rs_text').html('<b>Survival</b>');
+    $('#rs_text').html(`<b>${good_rs_en}</b>`);
   }
 }

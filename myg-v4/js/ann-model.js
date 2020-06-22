@@ -44,7 +44,7 @@ function eval_ann(ann_input){
   sm = SoftMax(ann_layer_3_out);
 
   // 返回结果
-  return sm[1]  // [阳性概率，阴性概率]
+  return sm[0]  // [阳性概率，阴性概率]
 }
 
 
