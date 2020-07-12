@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="max-age=604800">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+
+  <title class="multi-lang" lang_cn="乙肝肝硬化5年进展肝癌概率人工神经网络模型计算器" lang_en="The probability of hepatocellular carcinoma   progression in 5 years of hepatitis B virus-related cirrhosis">乙肝肝硬化5年进展肝癌概率人工神经网络模型计算器</title>
+  <link rel="icon" href="favicon.ico">
+</head>
+
+<body class="bg-light">
+  <br><br>
+  <header>
+    <h1 class="text-center multi-lang" lang_cn="乙肝肝硬化5年进展肝癌概率" lang_en="The probability of hepatocellular carcinoma   progression in 5 years of hepatitis B virus-related cirrhosis">乙肝肝硬化5年进展肝癌概率</h1>
+    <h2 class="text-center multi-lang" lang_cn="人工神经网络模型计算器" lang_en="Artificial Neural Network Model Calculator">人工神经网络模型计算器</h2>
+  </header>
+  <br>
+  <!-- <div class="text-center">
+    <span class="align-text-top">简体中文</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round align-middle"></span>
+    </label>
+    <span class="align-middle">English</span>
+  </div> -->
+  <div class="text-center">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button id="toggle-lang_cn" type="button" onclick="lang_cn()" class="btn btn-sm btn-primary">简体中文</button>
+      <button id="toggle-lang_en" type="button" onclick="lang_en()" class="btn btn-sm btn-secondary">&nbsp;English&nbsp;</button>
+    </div>
+  </div>
+  <br>
+  <main class="container shadow-sm p-3 mb-5 bg-white rounded">
+    <!-- 参数 -->
+    <br>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header"><b class="multi-lang" lang_cn="参数" lang_en="Parameters">参数</b></div>
+          <div class="card-body">
+            <form id="form_agrs">
+
+              <!-- 第一行 -->
+              <div class="form-row">
+                <div class="col"></div>
+
+                <div class="col-md-3 mb-2">
+                  <label><b>Age</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_age" name="age" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">Year</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="年龄" lang_en="Age">年龄</div>
+                </div>
+
+                <div class="col-md-1 mb-2"></div>
+                <div class="col-md-3 mb-2">
+                  <label><b>ALT</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_alt" name="alt" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">U/L</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="丙氨酸转氨酶" lang_en="Alanine aminotransferase">丙氨酸转氨酶</div>
+                </div>
+
+                <div class="col-md-1 mb-2"></div>
+                <div class="col-md-3 mb-2">
+                  <label><b>ALB</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_alb" name="alb" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">g/L</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="白蛋白" lang_en="Albumin">白蛋白</div>
+                </div>
+
+                <div class="col"></div>
+              </div>
+              <!-- 第一行结束 -->
+
+              <!-- 第二行 -->
+              <div class="form-row">
+                <div class="col"></div>
+
+                <div class="col-md-3 mb-3">
+                  <label><b>Ascites</b></label>
+                  <div class="input-group">
+                    <select class="custom-select" id="arg_asc" name="asc" required>
+                      <option value="0" class="multi-lang" lang_cn="否" lang_en="No">否</option>
+                      <option value="1" class="multi-lang" lang_cn="1" lang_en="1">1</option>
+                      <option value="2" class="multi-lang" lang_cn="2" lang_en="2">2</option>
+                      <option value="3" class="multi-lang" lang_cn="3" lang_en="3">3</option>
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text multi-lang" lang_cn="级" lang_en="Grade" for="inputGroupSelect02">级</label>
+                    </div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="腹水" lang_en="Ascites">腹水</div>
+                </div>
+
+                <div class="col-md-1 mb-2"></div>
+
+                <div class="col-md-3 mb-3">
+                  <label><b>Child-Pugh classification</b></label>
+                  <div class="input-group">
+                    <select class="custom-select" id="arg_cpc" name="cpc" required>
+                      <option value="1">A</option>
+                      <option value="2">B</option>
+                      <option value="3">C</option>
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text multi-lang" lang_cn="级" lang_en="Grade" for="inputGroupSelect02">级</label>
+                    </div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="Child-Pugh分级" lang_en="Child-Pugh classification">Child-Pugh分级</div>
+                </div>
+
+                <div class="col-md-1 mb-2"></div>
+
+                <div class="col-md-3 mb-3">
+                  <label><b>Gastrointestinal varices with bleeding</b></label>
+                  <div class="input-group">
+                    <select class="custom-select" id="arg_gvb" name="gvb" required>
+                      <option value="1" class="multi-lang" lang_cn="是" lang_en="Yes">是</option>
+                      <option value="0" class="multi-lang" lang_cn="否" lang_en="No">否</option>
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text" for="inputGroupSelect02">--</label>
+                    </div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="食管胃静脉曲张出血" lang_en="Esophagogastric variceal bleeding">食管胃静脉曲张出血</div>
+                </div>
+
+                <div class="col"></div>
+              </div>
+              <!-- 第二行结束 -->
+
+              <!-- 第三行 -->
+              <div class="form-row">
+                <div class="col"></div>
+
+                <div class="col-md-3 mb-3">
+                  <label><b>Encephalopathy</b></label>
+                  <div class="input-group">
+                    <select class="custom-select" id="arg_enc" name="enc" required>
+                      <option value=0 class="multi-lang" lang_cn="无" lang_en="No">无</option>
+                      <option value=1>Ⅰ</option>
+                      <option value=2>Ⅱ</option>
+                      <option value=3>Ⅲ</option>
+                      <option value=4>Ⅳ</option>
+                    </select>
+                    <div class="input-group-append">
+                      <label class="input-group-text" for="inputGroupSelect02">--</label>
+                    </div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="肝性脑病" lang_en="Hepatic encephalopathy">肝性脑病</div>
+                </div>
+
+                <div class="col-md-1 mb-2"></div>
+
+                <div class="col-md-3 mb-3">
+                  <label><b>NLR</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_nlr" name="nlr" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">--</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="中性粒细胞淋巴细胞比值" lang_en="Neutrophil‐lymphocyte ratio">中性粒细胞淋巴细胞比值</div>
+                </div>
+
+
+                <div class="col-md-1 mb-2"></div>
+                <div class="col-md-3 mb-3">
+                  <label><b>PLT</b></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="arg_plt" name="plt" value="" required>
+                    <div class="input-group-append rounded"><span class="input-group-text">10<sup>9</sup>/L</span></div>
+                  </div>
+                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="血小板" lang_en="Platelets">血小板</div>
+                </div>
+
+                <div class="col"></div>
+              </div>
+              <!-- 第三行结束 -->
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-2"></div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- 结果 -->
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header"><b class="multi-lang" lang_cn="结果" lang_en="Result">结果</b></div>
+          <div class="card-body">
+            <div class="row justify-content-md-center">
+              <div class="col col-md-4 text-left">
+                <h5 id="rs_text" class="card-title multi-lang" lang_cn="<b>--</b>" lang_en="<b>--</b>"><b>--</b></h5>
+              </div>
+              <div class="col col-md-8 text-right">
+                <span class="align-text-left multi-lang" lang_cn="5年肝癌发生概率：" lang_en="5-year probability of HCC: ">5年肝癌发生概率：</span><span id="rs_value">--</span>
+              </div>
+            </div>
+
+            <div class="progress">
+              <div id="rs_progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0">--</div>
+            </div>
+            <hr>
+            <h5 class="text-center" style="color: #bbb;"><b class="multi-lang" lang_cn="说明" lang_en="Instructions">说明</b></h5>
+            <ul style="color: #bbb;">
+              <li class="multi-lang" lang_cn="<b>使用方法1</b>：直接修改上面的参数，会自动计算结果；" lang_en="<b>Method 1</b>: Directly modify the above parameters and the result will be calculated automatically;"><b>使用方法1</b>：直接修改上面的参数，会自动计算结果；</li>
+              <li class="multi-lang" lang_cn="<b>使用方法2</b>：使用URL代参数访问，会自动填写表单和计算结果；" lang_en="<b>Method 2</b>: Use URLs with parameters, the form and results will be automatically completed;"><b>使用方法2</b>：使用URL代参数访问，会自动填写表单和计算结果；</li>
+              <li class="multi-lang" lang_cn="<b>概率</b>：是神经网络模型的SoftMax函数的输出结果。" lang_en='<b>Probability</b>: The SoftMax function results of the neural network model.'><b>概率</b>：神经网络模型的SoftMax函数的输出结果。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-2"></div>
+    </div>
+
+    <div class="ann-result">
+      <label for=""></label>
+    </div>
+
+  </main>
+
+  <footer class="container shadow-sm p-3 mb-5 bg-white rounded text-info">
+    <div class="row">
+      <div class="col text-center multi-lang" lang_cn="<b>邮箱</b>：annmodel@163.com | <b>地址</b>：北京市朝阳区京顺东街8号" lang_en="<b>E-Mail</b>: annmodel@163.com | <b>Address</b>: Jingshun Dong Street No. 8, Chaoyang District, Beijing"><b>邮箱</b>：annmodel@163.com
+        | <b>地址</b>：北京市朝阳区京顺东街8号</div>
+    </div>
+    <div class="row">
+      <div class="col text-center multi-lang" lang_cn="© 2018 首都医科大学附属北京地坛医院中西医结合中心" lang_en="© 2018 Center of Integrative Medicine, Beijing Ditan Hospital, Capital Medical University. All rights reserved. ">© 2018 首都医科大学附属北京地坛医院中西医结合中心，版权所有。</div>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <!-- https://mathjs.org/docs/reference/functions.html -->
+  <script src="https://cdn.bootcss.com/mathjs/4.4.0/math.min.js"></script>
+  <script src="js/ann-model.js"></script>
+  <script src="js/evaluate.js?v=5"></script>
+</body>
+
+</html>
