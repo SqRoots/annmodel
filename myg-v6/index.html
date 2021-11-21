@@ -2,188 +2,198 @@
 <html lang="zh-CN">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="Cache-Control" content="max-age=604800">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="max-age=604800">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css"
+          integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
 
-  <title class="multi-lang" lang_cn="慢性乙型肝炎发生肝癌风险预测系统" lang_en="Artificial neural network model Predicts Liver cancer risk in patients on Antiviral therapy-chronic hepatitis B (APLA-B)">慢性乙型肝炎发生肝癌风险预测系统</title>
-  <link rel="icon" href="favicon.ico">
+    <title class="multi-lang" lang_cn="慢性乙型肝炎发生肝癌风险预测系统"
+           lang_en="Artificial neural network model Predicts Liver cancer risk in patients on Antiviral therapy-chronic hepatitis B (APLA-B)">慢性乙型肝炎发生肝癌风险预测系统</title>
+    <link rel="icon" href="favicon.ico">
 </head>
 
 <body class="bg-light">
-  <br><br>
-  <header>
-    <h2 class="text-center multi-lang" lang_cn="慢性乙型肝炎发生肝癌风险预测系统" lang_en="Artificial neural network model Predicts Liver cancer risk in patients on Antiviral therapy-chronic hepatitis B (APLA-B)">慢性乙型肝炎发生肝癌风险预测系统</h2>
+<br><br>
+<header>
+    <h2 class="text-center multi-lang" lang_cn="慢性乙型肝炎发生肝癌风险预测系统"
+        lang_en="Artificial neural network model Predicts Liver cancer risk in patients on Antiviral therapy-chronic hepatitis B (APLA-B)">慢性乙型肝炎发生肝癌风险预测系统</h2>
     <h3 class="text-center multi-lang" lang_cn="人工神经网络模型计算器" lang_en="Artificial Neural Network Model Calculator">人工神经网络模型计算器</h3>
-  </header>
-  <br>
-  <!-- <div class="text-center">
-    <span class="align-text-top">简体中文</span>
-    <label class="switch">
-      <input type="checkbox" checked>
-      <span class="slider round align-middle"></span>
-    </label>
-    <span class="align-middle">English</span>
-  </div> -->
-  <div class="text-center">
+</header>
+<br>
+<!-- <div class="text-center">
+  <span class="align-text-top">简体中文</span>
+  <label class="switch">
+    <input type="checkbox" checked>
+    <span class="slider round align-middle"></span>
+  </label>
+  <span class="align-middle">English</span>
+</div> -->
+<div class="text-center">
     <div class="btn-group" role="group" aria-label="Basic example">
-      <button id="toggle-lang_cn" type="button" onclick="lang_cn()" class="btn btn-sm btn-primary">简体中文</button>
-      <button id="toggle-lang_en" type="button" onclick="lang_en()" class="btn btn-sm btn-secondary">&nbsp;English&nbsp;</button>
+        <button id="toggle-lang_cn" type="button" onclick="lang_cn()" class="btn btn-sm btn-primary">简体中文</button>
+        <button id="toggle-lang_en" type="button" onclick="lang_en()" class="btn btn-sm btn-secondary">&nbsp;English&nbsp;</button>
     </div>
-  </div>
-  <br>
-  <main class="container shadow-sm p-3 mb-5 bg-white rounded">
+</div>
+<br>
+<main class="container shadow-sm p-3 mb-5 bg-white rounded">
     <!-- 参数 -->
     <br>
     <div class="row justify-content-md-center">
-      <div class="col col-lg-2"></div>
-      <div class="col-lg-8">
-        <div class="card">
-          <div class="card-header"><b class="multi-lang" lang_cn="参数" lang_en="Parameters">参数</b></div>
-          <div class="card-body">
-            <form id="form_agrs">
+        <div class="col col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header"><b class="multi-lang" lang_cn="参数" lang_en="Parameters">参数</b></div>
+                <div class="card-body">
+                    <form id="form_agrs">
 
-              <!-- 第一行 -->
-              <div class="form-row">
-                <div class="col"></div>
-                <!-- 第一行，第1列 -->
-                <div class="col-md-3 mb-2">
-                  <label><b class="multi-lang" lang_cn="是否高血压" lang_en="Hypertension">是否高血压</b></label>
-                  <div class="input-group">
-                    <div class="form-check-inline">
-                      <label class="form-check-label" for="arg_hyp1">
-                        <input type="radio" class="form-check-input" id="arg_hyp1" name="hyp" value="0"><span class="multi-lang" lang_cn="否" lang_en="No">否</span>
-                      </label>
-                    </div>
-                    <div class="form-check-inline">
-                      <label class="form-check-label" for="arg_hyp2">
-                        <input type="radio" class="form-check-input" id="arg_hyp2" name="hyp" value="1"><span class="multi-lang" lang_cn="是" lang_en="Yes">是</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <!-- 第一行，第2列 -->
-                <div class="col-md-1 mb-2"></div>
-                <div class="col-md-3 mb-2">
-                  <label><b class="multi-lang" lang_cn="是否糖尿病" lang_en="Diabetes">是否糖尿病</b></label>
-                  <div class="input-group">
-                    <div class="form-check-inline">
-                      <label class="form-check-label" for="arg_dia1">
-                        <input type="radio" class="form-check-input" id="arg_dia1" name="dia" value="0"><span class="multi-lang" lang_cn="否" lang_en="No">否</span>
-                      </label>
-                    </div>
-                    <div class="form-check-inline">
-                      <label class="form-check-label" for="arg_dia2">
-                        <input type="radio" class="form-check-input" id="arg_dia2" name="dia" value="1"><span class="multi-lang" lang_cn="是" lang_en="Yes">是</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
+                        <!-- 第一行 -->
+                        <div class="form-row">
+                            <div class="col"></div>
+                            <!-- 第一行，第1列 -->
+                            <div class="col-md-3 mb-2">
+                                <label><b class="multi-lang" lang_cn="是否高血压" lang_en="Hypertension">是否高血压</b></label>
+                                <div class="input-group">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label" for="arg_hyp1">
+                                            <input type="radio" class="form-check-input" id="arg_hyp1" name="hyp" value="0"><span class="multi-lang" lang_cn="否"
+                                                                                                                                  lang_en="No">否</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label" for="arg_hyp2">
+                                            <input type="radio" class="form-check-input" id="arg_hyp2" name="hyp" value="1"><span class="multi-lang" lang_cn="是"
+                                                                                                                                  lang_en="Yes">是</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 第一行，第2列 -->
+                            <div class="col-md-1 mb-2"></div>
+                            <div class="col-md-3 mb-2">
+                                <label><b class="multi-lang" lang_cn="是否糖尿病" lang_en="Diabetes">是否糖尿病</b></label>
+                                <div class="input-group">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label" for="arg_dia1">
+                                            <input type="radio" class="form-check-input" id="arg_dia1" name="dia" value="0"><span class="multi-lang" lang_cn="否"
+                                                                                                                                  lang_en="No">否</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label" for="arg_dia2">
+                                            <input type="radio" class="form-check-input" id="arg_dia2" name="dia" value="1"><span class="multi-lang" lang_cn="是"
+                                                                                                                                  lang_en="Yes">是</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
 
-                <!-- 第一行，第3列 -->
-                <div class="col-md-1 mb-2"></div>
-                <div class="col-md-3 mb-2">
-                  <label><b class="multi-lang" lang_cn="是否饮酒" lang_en="Drink">是否饮酒</b></label>
-                  <div class="input-group">
-                    <div class="form-check-inline">
-                      <label class="form-check-label" for="arg_dri1">
-                        <input type="radio" class="form-check-input" id="arg_dri1" name="dri" value="0"><span class="multi-lang" lang_cn="否" lang_en="No">否</span>
-                      </label>
-                    </div>
-                    <div class="form-check-inline">
-                      <label class="form-check-label" for="arg_dri2">
-                        <input type="radio" class="form-check-input" id="arg_dri2" name="dri" value="1"><span class="multi-lang" lang_cn="是" lang_en="Yes">是</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
+                            <!-- 第一行，第3列 -->
+                            <div class="col-md-1 mb-2"></div>
+                            <div class="col-md-3 mb-2">
+                                <label><b class="multi-lang" lang_cn="是否饮酒" lang_en="Drink">是否饮酒</b></label>
+                                <div class="input-group">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label" for="arg_dri1">
+                                            <input type="radio" class="form-check-input" id="arg_dri1" name="dri" value="0"><span class="multi-lang" lang_cn="否"
+                                                                                                                                  lang_en="No">否</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label" for="arg_dri2">
+                                            <input type="radio" class="form-check-input" id="arg_dri2" name="dri" value="1"><span class="multi-lang" lang_cn="是"
+                                                                                                                                  lang_en="Yes">是</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
 
-                <div class="col"></div>
-              </div>
-              <!-- 第一行结束 -->
-              <br>
-              <!-- 第二行 -->
-              <div class="form-row">
-                <div class="col"></div>
-                <!-- 第二行，第1列 -->
-                <div class="col-md-3 mb-3">
-                  <label><b>Age</b></label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="arg_age" name="age" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">years</span></div>
-                  </div>
-                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="年龄" lang_en="Age">年龄</div>
+                            <div class="col"></div>
+                        </div>
+                        <!-- 第一行结束 -->
+                        <br>
+                        <!-- 第二行 -->
+                        <div class="form-row">
+                            <div class="col"></div>
+                            <!-- 第二行，第1列 -->
+                            <div class="col-md-3 mb-3">
+                                <label><b>Age</b></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="arg_age" name="age" value="" required>
+                                    <div class="input-group-append rounded"><span class="input-group-text">years</span></div>
+                                </div>
+                                <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="年龄" lang_en="Age">年龄</div>
+                            </div>
+                            <!-- 第二行，第2列 -->
+                            <div class="col-md-1 mb-2"></div>
+                            <div class="col-md-3 mb-3">
+                                <label><b>ALT</b></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="arg_alt" name="alt" value="" required>
+                                    <div class="input-group-append rounded"><span class="input-group-text">U/L</span></div>
+                                </div>
+                                <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="丙氨酸氨基转移酶" lang_en="alanine aminotransferase">丙氨酸氨基转移酶</div>
+                            </div>
+                            <!-- 第二行，第3列 -->
+                            <div class="col-md-1 mb-2"></div>
+                            <div class="col-md-3 mb-3">
+                                <label><b>HBV DNA</b></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="arg_hbv" name="hbv" value="" required>
+                                    <div class="input-group-append rounded"><span class="input-group-text">log10 IU/ml</span></div>
+                                </div>
+                                <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="乙型肝炎病毒" lang_en="HBV DNA">乙型肝炎病毒</div>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+                        <!-- 第二行结束 -->
+                        <br>
+                        <!-- 第三行 -->
+                        <div class="form-row">
+                            <div class="col"></div>
+                            <!-- 第三行，第1列 -->
+                            <div class="col-md-3 mb-3">
+                                <label><b>PLT</b></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="arg_plt" name="plt" value="" required>
+                                    <div class="input-group-append rounded"><span class="input-group-text">10^9/L</span></div>
+                                </div>
+                                <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="血小板" lang_en="platelet">血小板</div>
+                            </div>
+                            <!-- 第三行，第2列 -->
+                            <div class="col-md-1 mb-2"></div>
+                            <div class="col-md-3 mb-3">
+                                <label><b>AST</b></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="arg_ast" name="ast" value="" required>
+                                    <div class="input-group-append rounded"><span class="input-group-text">U/L</span></div>
+                                </div>
+                                <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="门冬氨酸氨基转移酶" lang_en="aspartate aminotransferase">门冬氨酸氨基转移酶</div>
+                            </div>
+                            <!-- 第三行，第3列 -->
+                            <div class="col-md-1 mb-2"></div>
+                            <div class="col-md-3 mb-3">
+                                <label><b>BUN</b></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="arg_bun" name="bun" value="" required>
+                                    <div class="input-group-append rounded"><span class="input-group-text">mmol/L</span></div>
+                                </div>
+                                <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="血尿素氮" lang_en="blood urea nitrogen">血尿素氮</div>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+                        <!-- 第三行结束 -->
+                    </form>
                 </div>
-                <!-- 第二行，第2列 -->
-                <div class="col-md-1 mb-2"></div>
-                <div class="col-md-3 mb-3">
-                  <label><b>ALT</b></label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="arg_alt" name="alt" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">U/L</span></div>
-                  </div>
-                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="丙氨酸氨基转移酶" lang_en="alanine aminotransferase">丙氨酸氨基转移酶</div>
-                </div>
-                <!-- 第二行，第3列 -->
-                <div class="col-md-1 mb-2"></div>
-                <div class="col-md-3 mb-3">
-                  <label><b>HBV DNA</b></label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="arg_hbv" name="hbv" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">log10 IU/ml</span></div>
-                  </div>
-                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="乙型肝炎病毒" lang_en="HBV DNA">乙型肝炎病毒</div>
-                </div>
-                <div class="col"></div>
-              </div>
-              <!-- 第二行结束 -->
-              <br>
-              <!-- 第三行 -->
-              <div class="form-row">
-                <div class="col"></div>
-                <!-- 第三行，第1列 -->
-                <div class="col-md-3 mb-3">
-                  <label><b>PLT</b></label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="arg_plt" name="plt" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">10^9/L</span></div>
-                  </div>
-                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="血小板" lang_en="platelet">血小板</div>
-                </div>
-                <!-- 第三行，第2列 -->
-                <div class="col-md-1 mb-2"></div>
-                <div class="col-md-3 mb-3">
-                  <label><b>AST</b></label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="arg_ast" name="ast" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">U/L</span></div>
-                  </div>
-                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="门冬氨酸氨基转移酶" lang_en="aspartate aminotransferase">门冬氨酸氨基转移酶</div>
-                </div>
-                <!-- 第三行，第3列 -->
-                <div class="col-md-1 mb-2"></div>
-                <div class="col-md-3 mb-3">
-                  <label><b>BUN</b></label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="arg_bun" name="bun" value="" required>
-                    <div class="input-group-append rounded"><span class="input-group-text">mmol/L</span></div>
-                  </div>
-                  <div class="text-black-50 multi-lang" style="font-size: 12px;" lang_cn="血尿素氮" lang_en="blood urea nitrogen">血尿素氮</div>
-                </div>
-                <div class="col"></div>
-              </div>
-              <!-- 第三行结束 -->
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
-      <div class="col col-lg-2"></div>
+        <div class="col col-lg-2"></div>
     </div>
 
     <br>
@@ -192,61 +202,86 @@
 
     <!-- 结果 -->
     <div class="row justify-content-md-center">
-      <div class="col col-lg-2"></div>
-      <div class="col-lg-8">
-        <div class="card">
-          <div class="card-header"><b class="multi-lang" lang_cn="结果" lang_en="Result">结果</b></div>
-          <div class="card-body">
-            <div class="row justify-content-md-center">
-              <div class="col col-md-4 text-left">
-                <h5 id="rs_text" class="card-title multi-lang" lang_cn="<b>--</b>" lang_en="<b>--</b>"><b>--</b></h5>
-              </div>
-              <div class="col col-md-8 text-right">
-                <span class="align-text-left multi-lang" lang_cn="5年肝癌发生概率：" lang_en="5-year probability of HCC: ">5年肝癌发生概率：</span><span id="rs_value">--</span>
-              </div>
-            </div>
+        <div class="col col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header"><b class="multi-lang" lang_cn="结果" lang_en="Result">结果</b></div>
+                <div class="card-body">
+                    <!-- 结果：3年 -->
+                    <div class="row justify-content-md-center">
+                        <div class="col col-md-4 text-left">
+                            <h5 id="rs_text_3years" class="card-title multi-lang" lang_cn="<b>--</b>" lang_en="<b>--</b>"><b>--</b></h5>
+                        </div>
+                        <div class="col col-md-8 text-right">
+                            <span class="align-text-left multi-lang" lang_cn="3年肝癌发生概率：" lang_en="3-year probability of HCC: ">3年肝癌发生概率：</span><span id="rs_value_3years">--</span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div id="rs_progress_3years" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0">--</div>
+                    </div>
+                    <!-- 结果：5年 -->
+                    <div class="row justify-content-md-center">
+                        <div class="col col-md-4 text-left">
+                            <h5 id="rs_text_5years" class="card-title multi-lang" lang_cn="<b>--</b>" lang_en="<b>--</b>"><b>--</b></h5>
+                        </div>
+                        <div class="col col-md-8 text-right">
+                            <span class="align-text-left multi-lang" lang_cn="5年肝癌发生概率：" lang_en="5-year probability of HCC: ">5年肝癌发生概率：</span><span id="rs_value_5years">--</span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div id="rs_progress_5years" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0">--</div>
+                    </div>
 
-            <div class="progress">
-              <div id="rs_progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0">--</div>
+                    <hr>
+
+                    <!-- 使用说明 -->
+                    <h5 class="text-center" style="color: #bbb;"><b class="multi-lang" lang_cn="说明" lang_en="Instructions">说明</b></h5>
+                    <ul style="color: #bbb;">
+                        <li class="multi-lang" lang_cn="<b>使用方法1</b>：直接修改上面的参数，会自动计算结果；"
+                            lang_en="<b>Method 1</b>: Directly modify the above parameters and the result will be calculated automatically;"><b>使用方法1</b>：直接修改上面的参数，会自动计算结果；
+                        </li>
+                        <li class="multi-lang" lang_cn="<b>使用方法2</b>：使用URL代参数访问，会自动填写表单和计算结果；"
+                            lang_en="<b>Method 2</b>: Use URLs with parameters, the form and results will be automatically completed;"><b>使用方法2</b>：使用URL代参数访问，会自动填写表单和计算结果；
+                        </li>
+                        <li class="multi-lang" lang_cn="<b>概率</b>：是神经网络模型的SoftMax函数的输出结果。" lang_en='<b>Probability</b>: The SoftMax function results of the neural network model.'>
+                            <b>概率</b>：神经网络模型的SoftMax函数的输出结果。
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <hr>
-            <h5 class="text-center" style="color: #bbb;"><b class="multi-lang" lang_cn="说明" lang_en="Instructions">说明</b></h5>
-            <ul style="color: #bbb;">
-              <li class="multi-lang" lang_cn="<b>使用方法1</b>：直接修改上面的参数，会自动计算结果；" lang_en="<b>Method 1</b>: Directly modify the above parameters and the result will be calculated automatically;"><b>使用方法1</b>：直接修改上面的参数，会自动计算结果；</li>
-              <li class="multi-lang" lang_cn="<b>使用方法2</b>：使用URL代参数访问，会自动填写表单和计算结果；" lang_en="<b>Method 2</b>: Use URLs with parameters, the form and results will be automatically completed;"><b>使用方法2</b>：使用URL代参数访问，会自动填写表单和计算结果；</li>
-              <li class="multi-lang" lang_cn="<b>概率</b>：是神经网络模型的SoftMax函数的输出结果。" lang_en='<b>Probability</b>: The SoftMax function results of the neural network model.'><b>概率</b>：神经网络模型的SoftMax函数的输出结果。</li>
-            </ul>
-          </div>
         </div>
-      </div>
-      <div class="col col-lg-2"></div>
+        <div class="col col-lg-2"></div>
     </div>
 
     <div class="ann-result">
-      <label for=""></label>
+        <label for=""></label>
     </div>
 
-  </main>
+</main>
 
-  <footer class="container shadow-sm p-3 mb-5 bg-white rounded text-info">
+<footer class="container shadow-sm p-3 mb-5 bg-white rounded text-info">
     <div class="row">
-      <div class="col text-center multi-lang" lang_cn="<b>邮箱</b>：xuexin162@163.com | <b>地址</b>：北京市朝阳区京顺东街8号" lang_en="<b>E-Mail</b>: xuexin162@163.com | <b>Address</b>: Jingshun Dong Street No. 8, Chaoyang District, Beijing"><b>邮箱</b>：xuexin162@163.com
-        | <b>地址</b>：北京市朝阳区京顺东街8号</div>
+        <div class="col text-center multi-lang" lang_cn="<b>邮箱</b>：xuexin162@163.com | <b>地址</b>：北京市朝阳区京顺东街8号"
+             lang_en="<b>E-Mail</b>: xuexin162@163.com | <b>Address</b>: Jingshun Dong Street No. 8, Chaoyang District, Beijing"><b>邮箱</b>：xuexin162@163.com
+            | <b>地址</b>：北京市朝阳区京顺东街8号
+        </div>
     </div>
     <div class="row">
-      <div class="col text-center multi-lang" lang_cn="© 2021 首都医科大学附属北京地坛医院中西医结合中心" lang_en="© 2021 Center of Integrative Medicine, Beijing Ditan Hospital, Capital Medical University. All rights reserved. ">© 2021 首都医科大学附属北京地坛医院中西医结合中心，版权所有。</div>
+        <div class="col text-center multi-lang" lang_cn="© 2021 首都医科大学附属北京地坛医院中西医结合中心"
+             lang_en="© 2021 Center of Integrative Medicine, Beijing Ditan Hospital, Capital Medical University. All rights reserved. ">© 2021 首都医科大学附属北京地坛医院中西医结合中心，版权所有。
+        </div>
     </div>
-  </footer>
+</footer>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-  <!-- https://mathjs.org/docs/reference/functions.html -->
-  <script src="https://cdn.bootcss.com/mathjs/4.4.0/math.min.js"></script>
-  <script src="js/ann-model.js"></script>
-  <script src="js/evaluate.js?v=5"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<!-- https://mathjs.org/docs/reference/functions.html -->
+<script src="https://cdn.bootcss.com/mathjs/4.4.0/math.min.js"></script>
+<script src="js/ann-model.js"></script>
+<script src="js/evaluate.js?v=5"></script>
 </body>
 
 </html>

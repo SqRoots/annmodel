@@ -1,28 +1,28 @@
 // ======================================================================
 // 主程序
+// 主要修改内容：分别计算5年和3年HCC概率
 $(function() {
   // ----------------------------------------------------------------
   // 从URL读取参数，并设置表单
   setForm();
-  // 计算神经网络模型
-  var ann_input = getDataFromForm(); //从表单读取数据，并设置URL
-  var rs = eval_ann(ann_input);
-  // console.log(ann_input);
-  // console.log($('#form_agrs').serializeArray());
 
-  // 设置输出结果
-  setOutput(rs)
+  // 计算神经网络模型
+  let ann_input = getDataFromForm(); //从表单读取数据，并设置URL
+  let rs = eval_ann(ann_input, 5);  // 计算神经网络模型
+  setOutput(rs,5)  // 设置输出结果
+
+  rs = eval_ann(ann_input, 3);  // 计算神经网络模型
+  setOutput(rs,3)  // 设置输出结果
 
   // ----------------------------------------------------------------
   //当表单变更时计算
   $('#form_agrs').change(function() {
     // 计算神经网络模型
-    var ann_input = getDataFromForm(); //从表单读取数据，并设置URL
-    var rs = eval_ann(ann_input);
-    // console.log(ann_input);
-    // console.log($('#form_agrs').serializeArray());
-    // 输出结果
-    setOutput(rs)
+    let ann_input = getDataFromForm(); //从表单读取数据，并设置URL
+    let rs = eval_ann(ann_input, 5); // 计算神经网络模型
+    setOutput(rs,5)  // 输出结果
+    rs = eval_ann(ann_input, 3); // 计算神经网络模型
+    setOutput(rs,3)  // 输出结果
   });
 });
 
@@ -38,17 +38,6 @@ const RS_EN_HIGH_RISK = 'High Risk';
 
 // ======================================================================
 // 定义函数
-// ----------------------------------------------------------------
-// function re_map_some_index(ann_input) {
-//   // 修改2个指标：
-//   // Location of varices	三分类：1/2/3	1-Esophageal varices only；2-Gastric varices only；3-Esophageal and gastric varices	预处理 3 →1，其它 → 0	Location of varices	曲张位置		lov
-//   // Size of varices	三分类：1/2/3	1-Small；2-Medium；3-Large	预处理 3 →1，其它 → 0	Size of varices	曲张大小		sov
-//   ann_input[5][0] = ann_input[5][0]>2?1:0;
-//   ann_input[6][0] = ann_input[6][0]>2?1:0;
-//   console.log(ann_input[5]);
-//   return ann_input;
-// }
-
 // ----------------------------------------------------------------
 function getDataFromForm() {
   // 从表单读取输入数据 ann_input
@@ -80,8 +69,12 @@ function getDataFromForm() {
 
 // ----------------------------------------------------------------
 // 设置输出
-function setOutput(rs) {
-  console.log({'阳性概率准确值':1-rs});
+function setOutput(rs, years) {
+  let YS = years === 3 ? '_3years' : '_5years'
+  let id_text = '#rs_text'+YS;
+  let id_value = '#rs_value'+YS;
+  let id_progress = '#rs_progress'+YS;
+  console.log('阳性概率准确值'+YS, 1-rs);
   //根据语言设置输出结果的变量
   if ($('#toggle-lang_cn').hasClass('btn-primary')) {
     var rs_text_low = RS_CN_LOW_RISK;
@@ -95,10 +88,8 @@ function setOutput(rs) {
   //判断结果是阳性还是阴性，并设置文本颜色
   if (1 - rs >= 0.666623) {
     var rs_text = rs_text_high;
-    $('#rs_text').removeClass('text-success').removeClass('text-warning');
-    $('#rs_progress').removeClass('bg-success').removeClass('bg-warning');
-    $('#rs_text').addClass('text-danger');
-    $('#rs_progress').addClass('bg-danger');
+    $(id_text).removeClass('text-success').removeClass('text-warning').addClass('text-danger');
+    $(id_progress).removeClass('bg-success').removeClass('bg-warning').addClass('bg-danger');
   // } else if (1 - rs <= 0.235 && 1 - rs >= 0.048) {
   //   var rs_text = rs_text_medium;
   //   $('#rs_text').removeClass('text-success').removeClass('text-danger');
@@ -107,33 +98,32 @@ function setOutput(rs) {
   //   $('#rs_progress').addClass('bg-warning');
 } else if (1 - rs < 0.666623) {
     var rs_text = rs_text_low;
-    $('#rs_text').removeClass('text-danger').removeClass('text-warning');
-    $('#rs_progress').removeClass('bg-danger').removeClass('bg-warning');
-    $('#rs_text').addClass('text-success');
-    $('#rs_progress').addClass('bg-success');
+    console.log(id_text);
+    $(id_text).removeClass('text-danger').removeClass('text-warning').addClass('text-success');
+    $(id_progress).removeClass('bg-danger').removeClass('bg-warning').addClass('bg-success');
   } else {
     var rs_text = '--';
-    $('#rs_text').removeClass('text-danger').removeClass('text-warning').removeClass('text-success');
-    $('#rs_progress').removeClass('bg-danger').removeClass('bg-warning').removeClass('bg-success');
+    $(id_text).removeClass('text-danger').removeClass('text-warning').removeClass('text-success');
+    $(id_progress).removeClass('bg-danger').removeClass('bg-warning').removeClass('bg-success');
   }
   //输出结果
-  $('#rs_text').html('<b>' + rs_text + '</b>');
+  $(id_text).html('<b>' + rs_text + '</b>');
   //输出概率
   if (rs_text == '--') {
     //输出概率值
-    $('#rs_value').text('--');
+    $(id_value).text('--');
     //修改进度条
-    $('#rs_progress').attr('aria-valuenow', '0');
-    $('#rs_progress').attr('style', 'width: 0%;');
-    $('#rs_progress').text('--');
+    $(id_progress).attr('aria-valuenow', '0');
+    $(id_progress).attr('style', 'width: 0%;');
+    $(id_progress).text('--');
   } else {
-    var rs_ratio = math.round(10000 - rs * 10000)/100.0;
+    let rs_ratio = math.round(10000 - rs * 10000)/100.0;
     //输出概率值
-    $('#rs_value').text((100*(1 - rs)).toFixed(4).toString()+'%');
+    $(id_value).text((100*(1 - rs)).toFixed(4).toString()+'%');
     //修改进度条
-    $('#rs_progress').attr('aria-valuenow', rs_ratio);
-    $('#rs_progress').attr('style', 'width: ' + rs_ratio + '%;');
-    $('#rs_progress').text(rs_ratio.toString() + '%');
+    $(id_progress).attr('aria-valuenow', rs_ratio);
+    $(id_progress).attr('style', 'width: ' + rs_ratio + '%;');
+    $(id_progress).text(rs_ratio.toString() + '%');
   }
 }
 
@@ -146,11 +136,6 @@ function getUrlParam(name) {
   return null;
 }
 
-
-// ann_input.push(ann_input_dict["alp"]);
-// ann_input.push(ann_input_dict["afp"]);
-// ann_input.push(ann_input_dict["cd4tcc"]);
-
 // set input value: select options
 function setFormSelect(e, v) {
   for (i = 0; i < e.length; i++) {
@@ -160,6 +145,7 @@ function setFormSelect(e, v) {
     }
   }
 }
+
 // set input value: ratio
 function setFormRatio(e, v) {
   if(v=='1'){
@@ -182,9 +168,6 @@ function setForm() {
   setFormSelect($('#arg_plt option'), getUrlParam('plt') || '');
   setFormSelect($('#arg_hbv option'), getUrlParam('hbv') || '');
 
-  // setFormSelect($('#arg_lov option'), getUrlParam('lov') || '');
-  // setFormSelect($('#arg_sov option'), getUrlParam('sov') || '');
-
   // 处理数值指标
   $('#arg_age').val(getUrlParam('age') || '');
   $('#arg_hyp').val(getUrlParam('hyp') || '');
@@ -196,7 +179,6 @@ function setForm() {
   $('#arg_plt').val(getUrlParam('plt') || '');
   $('#arg_hbv').val(getUrlParam('hbv') || '');
 }
-
 
 //替换URL中指定传入参数的值, paramName为参数名, replaceWith为该参数的新值
 function replaceParamVal(paramName, replaceWith) {
@@ -211,7 +193,6 @@ function replaceParamVal(paramName, replaceWith) {
   }
   history.pushState(null, '', new_URL);
 }
-
 
 // ======================================================================
 //切换语言
